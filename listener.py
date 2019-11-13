@@ -2,11 +2,15 @@
 import tweepy
 import pandas as pd
 import json
+import os
 import datetime
 import pytz
 from pymongo import MongoClient
+from m3inference.consts import TW_DEFAULT_PROFILE_IMG
+from m3inference import M3Twitter
 
 
+# set up API keys
 auth = tweepy.OAuthHandler(consumer_key = 'b2naZOAwQBhBEHYFt2enZ660c',
                            consumer_secret = '3nUqbx6qMkVAIm0mV5bFnOhRZa1KCEQbbfWpzBWr1e5B2FPKyc')
 auth.set_access_token('2465447359-nge8h5d3WTxZQZ3msNqTPHnqM0LAkwXOR6mQOPA',
@@ -21,11 +25,18 @@ except:
 
 
 
-
+# set up mongo, count and timezone
 client = MongoClient('localhost', 27017)
 count = 0
 eastern = pytz.timezone('US/Eastern')
 
+
+# create cache folder and set up m3
+if not os.path.exists('twitter_cache'):
+    os.makedirs('twitter_cache')
+m3twitter=M3Twitter(cache_dir="twitter_cache")
+
+# create listener
 class StreamListener(tweepy.StreamListener):
     """tweepy.StreamListener is a class provided by tweepy used to access
     the Twitter Streaming API to collect tweets in real-time.
@@ -53,8 +64,36 @@ class StreamListener(tweepy.StreamListener):
         # decode JSON
         datajson = json.loads(data)
         # storying only tweets in English
-        if "lang" in datajson and datajson["lang"] == "en":
-            collection.insert_one(datajson)
+
+
+        if ("lang" in datajson and datajson["lang"] == "en") and ("place" in datajson and datajson["place"]['country_code'] == "CA"):
+
+            m3_json = m3twitter.transform_jsonl_object(datajson)
+            # M3 PROVIDED:
+            # description
+            # id
+            # img_path
+            # lang
+            # name
+            # screen_name
+
+
+            m3_json['created_at'] = datajson['created_at'],
+            text,
+            m3_json['utc_offset'] = datajson['user']['utc_offset'],
+            m3_json['profile_location']= datajson['user']['location'] #do all tweets have it?
+            datajson['followers_count'] = m3_json['user']['followers_count'],
+            datajson['friends_count'] = m3_json['user']['friends_count'],
+            datajson['favourites_count'] = m3_json['user']['favourites_count'],
+            datajson['statuses_count'] = m3_json['user']['statuses_count'],
+            datajson['listed_count'] = m3_json['user']['listed_count'],
+            coordinates_type,
+            coordinates,
+            place,
+            datajson['country_code'] = m3_json['place']['country_code']
+
+            collection.insert_one(m3_json)
+
         count += 1
         # print the progress every 1000 tweets
         ON_time = datetime.datetime.now(eastern)
