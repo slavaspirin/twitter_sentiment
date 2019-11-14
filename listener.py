@@ -77,20 +77,38 @@ class StreamListener(tweepy.StreamListener):
             # name
             # screen_name
 
+            if 'extended_tweet' in datajson:
+                text = datajson['extended_tweet']['full_text']
+            else:
+                text = datajson['text']
+            # text = text.replace('\n', '').replace(';', '')
+
+            if datajson['coordinates']:
+                coordinates_type = datajson['coordinates']['type']
+                coordinates = datajson['coordinates']['coordinates']
+
+            else:
+                coordinates_type = datajson['place']['bounding_box']['type']
+                coordinates = datajson['place']['bounding_box']['coordinates']
+
+                # use more detailed area if available
+            if datajson['place']['place_type'] == 'admin':
+                place = datajson['place']['name']
+            else: place = datajson['place']['full_name']
 
             m3_json['created_at'] = datajson['created_at'],
-            text,
+            m3_json['text'] = text,
             m3_json['utc_offset'] = datajson['user']['utc_offset'],
-            m3_json['profile_location']= datajson['user']['location'] #do all tweets have it?
-            datajson['followers_count'] = m3_json['user']['followers_count'],
-            datajson['friends_count'] = m3_json['user']['friends_count'],
-            datajson['favourites_count'] = m3_json['user']['favourites_count'],
-            datajson['statuses_count'] = m3_json['user']['statuses_count'],
-            datajson['listed_count'] = m3_json['user']['listed_count'],
-            coordinates_type,
-            coordinates,
-            place,
-            datajson['country_code'] = m3_json['place']['country_code']
+            m3_json['profile_location']= datajson['user']['location']
+            m3_json['followers_count'] = datajson['user']['followers_count'],
+            m3_json['friends_count'] = datajson['user']['friends_count'],
+            m3_json['favourites_count'] = datajson['user']['favourites_count'],
+            m3_json['statuses_count'] = datajson['user']['statuses_count'],
+            m3_json['listed_count'] = datajson['user']['listed_count'],
+            m3_json['coordinates_type'] = coordinates_type,
+            m3_json['coordinates']= coordinates,
+            m3_json['place'] = place,
+            m3_json['country_code'] = datajson['place']['country_code']
 
             collection.insert_one(m3_json)
 
