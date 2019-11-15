@@ -9,6 +9,8 @@ from pymongo import MongoClient
 from m3inference.consts import TW_DEFAULT_PROFILE_IMG
 from m3inference import M3Twitter
 
+from m3inference.consts import
+
 
 # set up API keys
 auth = tweepy.OAuthHandler(consumer_key = 'b2naZOAwQBhBEHYFt2enZ660c',
