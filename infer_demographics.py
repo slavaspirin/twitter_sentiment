@@ -11,11 +11,16 @@ import csv
 tweets = []
 missing_pics = 0
 
+count = 0  # REMOVE
 
 # create a list of dictionaries(tweets), replace missing images with default ones
 for line in open('training_tweets.json', encoding="utf8").readlines():
-    loads = json.loads(line)
-    tweets.append(loads)
+
+    if (count > 441*50) and (count < 444*50): # REMOVE
+        loads = json.loads(line)
+        tweets.append(loads)
+
+    count += 1  # REMOVE
 
     if not os.path.exists(loads['img_path']):
         loads['img_path'] = TW_DEFAULT_PROFILE_IMG
@@ -28,7 +33,7 @@ m3twitter = M3Twitter(cache_dir="twitter_cache")
 demographics = m3twitter.infer(tweets, batch_size=50, num_workers=4)
 
 # create a function to return the keys with max probabilities
-get_demog = lambda k: {k: (max(v, key=v.get)) for (k,v) in k.items()}
+get_demog = lambda k: {k: (max(v, key=v.get)) for (k, v) in k.items()}
 
 # create and write a csv file
 with open("tweets_and_demographics.csv", "w") as f:
