@@ -11,21 +11,15 @@ import csv
 tweets = []
 missing_pics = 0
 
-count = 0  # REMOVE
 
 # create a list of dictionaries(tweets), replace missing images with default ones
 for line in open('training_tweets.json', encoding="utf8").readlines():
+    loads = json.loads(line)
+    tweets.append(loads)
 
-    if (count > 441*50) and (count < 444*50):  # REMOVE
-        loads = json.loads(line)
-        tweets.append(loads)
-
-        if not os.path.exists(loads['img_path']):
-            loads['img_path'] = TW_DEFAULT_PROFILE_IMG
-            missing_pics += 1
-
-    count += 1  # REMOVE
-
+    if not os.path.exists(loads['img_path']):
+        loads['img_path'] = TW_DEFAULT_PROFILE_IMG
+        missing_pics += 1
 print("{} missing profile images".format(missing_pics))
 
 
