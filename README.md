@@ -8,6 +8,9 @@ Collects and predicts demographics of tweets
 ### twitter_sentiment
 `git clone https://github.com/SlavOK400/twitter_sentiment.git`
 
+### mongo database
+Please install the latest stable version and run MongoDB server. https://docs.mongodb.com/
+
 ## Usage
 1. Run `listener.py` to collect tweets
 2. Run `mongoexport --db tweets --collection training_tweets --out training_tweets.json` to convert collected tweets to a json file
