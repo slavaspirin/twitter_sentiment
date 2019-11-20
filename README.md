@@ -1,11 +1,11 @@
 # twitter_sentiment
-Sentiment analysis of tweets
+Collects and predictd demographics of tweets
 
 ## Install
-# m3inference
+### m3inference
 `pip install git+https://github.com/SlavOK400/m3inference.git`
 
-# twitter_sentiment
+### twitter_sentiment
 `git clone https://github.com/SlavOK400/twitter_sentiment.git`
 
 ## Usage
@@ -14,5 +14,5 @@ Sentiment analysis of tweets
 3. Run `infer_demographics.py` to predict domographocs and create a .CSV file with merged tweets and demographics
 
 
-### Usefull datasets:
+## Usefull datasets:
 https://github.com/shaypal5/awesome-twitter-data#twitter-datasets
