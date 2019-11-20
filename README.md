@@ -1,5 +1,5 @@
 # twitter_sentiment
-Collects and predictd demographics of tweets
+Collects and predicts demographics of tweets
 
 ## Install
 ### m3inference
@@ -11,7 +11,7 @@ Collects and predictd demographics of tweets
 ## Usage
 1. Run `listener.py` to collect tweets
 2. Run `mongoexport --db tweets --collection training_tweets --out training_tweets.json` to convert collected tweets to a json file
-3. Run `infer_demographics.py` to predict domographocs and create a .CSV file with merged tweets and demographics
+3. Run `infer_demographics.py` to predict demographocs and create a .CSV file with merged tweets and demographics
 
 
 ## Usefull datasets:
