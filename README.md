@@ -1,4 +1,4 @@
-# twitter_sentiment
+# Twitter sentiment analysis
 Collects and predicts demographics of tweets
 
 ## Install
