@@ -1,6 +1,10 @@
 # twitter_sentiment
 Sentiment analysis of tweets
 
+'''
+wqe
+'''
+
 
 ## Usefull datasets:
 https://github.com/shaypal5/awesome-twitter-data#twitter-datasets
