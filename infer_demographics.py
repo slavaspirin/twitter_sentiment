@@ -31,7 +31,7 @@ demographics = m3twitter.infer(tweets, batch_size=50, num_workers=4)
 get_demog = lambda k: {k: (max(v, key=v.get)) for (k, v) in k.items()}
 
 # create and write a csv file
-with open("tweets_and_demographics.csv", "w") as f:
+with open("tweets_and_demographics.csv", "w", encoding="utf8") as f:
     writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
     # write first row with keys
     writer.writerow(tweets[0].keys())
