@@ -34,7 +34,7 @@ get_demog = lambda k: {k: (max(v, key=v.get)) for (k, v) in k.items()}
 with open("tweets_and_demographics.csv", "w", encoding="utf8") as f:
     writer = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
     # write first row with keys
-    writer.writerow(tweets[0].keys())
+    writer.writerow(list(tweets[0].keys()) + ['sex', 'age', 'org'])
     for tweet in tweets:
         # add demographics to tweets
         tweet.update(get_demog(demographics[tweet['id']]))
