@@ -9,6 +9,7 @@ import csv
 import emoji
 import re
 import infer_sentiment_and_category
+from PIL import Image
 
 # tweets = [json.loads(line) for line in open('training_tweets.json', encoding="utf8").readlines()]
 
@@ -28,7 +29,10 @@ for file in arguments:
         loads = json.loads(line)
         tweets.append(loads)
 
-        if not os.path.exists(loads['img_path']):
+        try:
+            assert os.path.exists(loads['img_path'])
+            Image.open(loads['img_path'])
+        except (AssertionError, OSError):
             loads['img_path'] = TW_DEFAULT_PROFILE_IMG
             missing_pics += 1
     print("{} missing profile images".format(missing_pics))
