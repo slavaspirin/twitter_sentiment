@@ -35,7 +35,7 @@ for file in arguments:
 
     # predict demographics
     m3twitter = M3Twitter(cache_dir="twitter_cache")
-    demographics = m3twitter.infer(tweets, batch_size=128, num_workers=4)
+    demographics = m3twitter.infer(tweets, batch_size=32, num_workers=4)
     # create a function to return the keys with max probabilities
     get_demog = lambda k: {k: (max(v, key=v.get)) for (k, v) in k.items()}
 
