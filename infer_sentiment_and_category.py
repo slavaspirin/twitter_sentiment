@@ -23,7 +23,7 @@ def predict_sentiment(texts, batch_size=512):
 
     tokenized = tokenizer.texts_to_sequences(texts)
     padded = pad_sequences(tokenized, maxlen=350)
-    return model.predict(padded, batch_size=batch_size, verbose=1)
+    return model.predict(padded, batch_size=batch_size, verbose=1).reshape(-1)
 
 
 def predict_category(texts, batch_size=512):
