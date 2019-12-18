@@ -15,9 +15,9 @@ def predict_sentiment(texts, batch_size=512):
     """
 
     # load model
-    model = tf.keras.models.load_model(models + '/' + 'twitter_se_model.h5')
+    model = tf.keras.models.load_model(FOLDER + '/' + 'twitter_se_model.h5')
 
-    with open(models + '/' + 'twitter_se_model_tokens.json') as f:
+    with open(FOLDER + '/' + 'twitter_se_model_tokens.json') as f:
         data = json.load(f)
         tokenizer = tokenizer_from_json(data)
 
@@ -33,9 +33,9 @@ def predict_category(texts, batch_size=512):
     :return: numpy array of probabilities of shape (x,1)
     """
 
-    model = tf.keras.models.load_model(models + '/' + 'reddit_model_v2.h5')
+    model = tf.keras.models.load_model(FOLDER + '/' + 'reddit_model_v2.h5')
 
-    with open(models + '/' + 'reddit_cat_model_tokens.json') as f:
+    with open(FOLDER + '/' + 'reddit_cat_model_tokens.json') as f:
         data = json.load(f)
         tokenizer = tokenizer_from_json(data)
 
