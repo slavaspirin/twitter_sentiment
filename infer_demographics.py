@@ -80,7 +80,7 @@ for file in arguments:
         for no, tweet in enumerate(tweets):
             # add demographics to tweets
             tweet.update(get_demog(demographics[tweet['id']]))
-            tweet.update({'sentiment': predicted_sentiments[no]})
+            tweet.update({'sentiment': predicted_sentiments[no][0]})
             tweet.update({'category': predicted_categories[no]})
             # edit text to make it readable. \n is used for new line for csv interpreters
             tweet['text'] = tweet['text'].replace('\n', ' ')
