@@ -1,4 +1,4 @@
-#! /home/slavok400/anaconda3/bin/python
+#! /usr/bin/python3
 
 import sys
 import os.path
