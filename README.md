@@ -9,7 +9,7 @@ Collects and predicts demographics of tweets
 `git clone https://github.com/SlavOK400/twitter_sentiment.git`
 
 ### mongo database
-Please install the latest stable version and run MongoDB server. https://docs.mongodb.com/
+Please install the latest stable version and run MongoDB server. https://docs.mongodb.com/v3.2/administration/install-on-linux/
 
 ## Usage
 0. Go to `twitter_sentiment` directory on your machine
