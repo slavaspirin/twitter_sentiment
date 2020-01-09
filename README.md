@@ -47,7 +47,7 @@ Please install the latest stable version and run MongoDB server. [Link](https://
 2. Run `mongoexport --db tweets --collection training_tweets --out *.json`, where * is the name of your file, to convert collected tweets to a json file
 3. Run `infer_demographics.py *.json`, where * is the name of your file, to predict demographics, categories and sentiment for your tweets. Input: json files. Output: single *_inferred.csv files
 
-> Originally all tweets from Canada will be collected, If you wish to change the location please update listener.py with:
+Originally all tweets from Canada will be collected, If you wish to change the location please update listener.py with:
 
 `if "place" in datajson and datajson["place"]['country_code'] == "US":`
 and
