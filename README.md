@@ -14,8 +14,12 @@ Please install the latest stable version and run MongoDB server. https://docs.mo
 ## Usage
 0. Go to `twitter_sentiment` directory on your machine
 1. Run `listener.py` to collect tweets
-2. Run `mongoexport --db tweets --collection training_tweets --out training_tweets.json` to convert collected tweets to a json file
-3. Run `infer_demographics.py` to predict demographics and create a .CSV file with merged tweets and demographics
+2. Run `mongoexport --db tweets --collection training_tweets --out *.json`, where * is the name of your file, to convert collected tweets to a json file
+3. Run `infer_demographics.py *.json`, where * is the name of your file, to predict demographics, categories and sentiment for your tweets. Input: json files. Output: single *_inferred.csv files
+
+
+
+and create a .CSV file with merged tweets and demographics
 
 
 ## Usefull datasets:
