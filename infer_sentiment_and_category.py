@@ -1,4 +1,4 @@
-# ! /home/slavok400/anaconda3/bin/python
+#! /usr/bin/python3
 
 from keras.preprocessing.text import tokenizer_from_json
 from keras.preprocessing.sequence import pad_sequences
