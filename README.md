@@ -48,3 +48,5 @@ Please install the latest stable version and run MongoDB server. [link](https://
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+ <img src="project_logo.jpg">
