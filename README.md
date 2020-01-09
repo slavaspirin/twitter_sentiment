@@ -20,16 +20,20 @@ pycld2>=0.31
 requests
 pandas>=0.20
 ```
-Also you need tweeter applciation access keys that you define in listener.py (consumer_key, consumer_secret, access_token, access_token_secret)
-
-[LINK](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a)
+Also you need tweeter applciation access keys that you define in listener.py 
+You will need (consumer_key, consumer_secret, access_token, access_token_secret) [LINK](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a)
 
 ### Installing
-m3inference package`pip install git+https://github.com/SlavOK400/m3inference.git`
+* **m3inference package**
+`pip install git+https://github.com/SlavOK400/m3inference.git`
 
-twitter_sentiment package`git clone https://github.com/SlavOK400/twitter_sentiment.git`
+* **twitter_sentiment package**
+`git clone https://github.com/SlavOK400/twitter_sentiment.git`
 
-#### mongo database
+* **Define your twitter app keys:**
+consumer_key, consumer_secret, access_token, access_token_secret in listener.py 
+
+* **Mongo database.**
 Please install the latest stable version and run MongoDB server. [link](https://docs.mongodb.com/v3.2/administration/install-on-linux/)
 
 ## Usage
