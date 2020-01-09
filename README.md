@@ -1,26 +1,43 @@
 # Twitter sentiment analysis
-Collects and predicts demographics of tweets
+* collects raw tweets
+* predicts demographics, category and sentiment
 
-## Install
-### m3inference
-`pip install git+https://github.com/SlavOK400/m3inference.git`
+## Getting Started
+### Prerequisites
+```
+emoji==0.5.4
+Keras==2.3.1
+Keras-Applications==1.0.8
+Keras-Preprocessing==1.1.0
+tensorflow==1.15.0
+Shapely==1.6.4.post1
+torch>=1.0.0
+numpy>=1.13
+tqdm
+Pillow
+torchvision>=0.2.2
+pycld2>=0.31
+requests
+pandas>=0.20
+```
 
-### twitter_sentiment
-`git clone https://github.com/SlavOK400/twitter_sentiment.git`
+### Installing
+m3inference package`pip install git+https://github.com/SlavOK400/m3inference.git`
 
-### mongo database
+twitter_sentiment package`git clone https://github.com/SlavOK400/twitter_sentiment.git`
+
+#### mongo database
 Please install the latest stable version and run MongoDB server. https://docs.mongodb.com/v3.2/administration/install-on-linux/
 
 ## Usage
 0. Go to `twitter_sentiment` directory on your machine
-1. Run `listener.py` to collect tweets
+1. Run `listener.py` to start collecting tweets
 2. Run `mongoexport --db tweets --collection training_tweets --out *.json`, where * is the name of your file, to convert collected tweets to a json file
 3. Run `infer_demographics.py *.json`, where * is the name of your file, to predict demographics, categories and sentiment for your tweets. Input: json files. Output: single *_inferred.csv files
 
+## Authors
+* Slava Spirin
+* Winston Li
 
-
-and create a .CSV file with merged tweets and demographics
-
-
-## Usefull datasets:
-https://github.com/shaypal5/awesome-twitter-data#twitter-datasets
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
