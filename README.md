@@ -20,6 +20,9 @@ pycld2>=0.31
 requests
 pandas>=0.20
 ```
+Also you need tweeter applciation access keys that you define in listener.py (consumer_key, consumer_secret, access_token, access_token_secret)
+
+[LINK](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a)
 
 ### Installing
 m3inference package`pip install git+https://github.com/SlavOK400/m3inference.git`
@@ -27,7 +30,7 @@ m3inference package`pip install git+https://github.com/SlavOK400/m3inference.git
 twitter_sentiment package`git clone https://github.com/SlavOK400/twitter_sentiment.git`
 
 #### mongo database
-Please install the latest stable version and run MongoDB server. https://docs.mongodb.com/v3.2/administration/install-on-linux/
+Please install the latest stable version and run MongoDB server. [link](https://docs.mongodb.com/v3.2/administration/install-on-linux/)
 
 ## Usage
 0. Go to `twitter_sentiment` directory on your machine
@@ -36,8 +39,8 @@ Please install the latest stable version and run MongoDB server. https://docs.mo
 3. Run `infer_demographics.py *.json`, where * is the name of your file, to predict demographics, categories and sentiment for your tweets. Input: json files. Output: single *_inferred.csv files
 
 ## Authors
-* Slava Spirin
-* Winston Li
+* Slava Spirin [LinkedIn](https://www.linkedin.com/in/slava-spirin/)
+* Winston Li [LinkedIn](https://www.linkedin.com/in/winstonl/)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
