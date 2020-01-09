@@ -8,11 +8,16 @@ from pymongo import MongoClient
 from m3inference import M3Twitter
 import time
 
+
+consumer_key = 'XXXX'
+consumer_secret = 'XXXX'
+access_token = 'XXXX'
+access_token_secret  = 'XXXX'
+
 # set up API keys
-auth = tweepy.OAuthHandler(consumer_key='b2naZOAwQBhBEHYFt2enZ660c',
-                           consumer_secret='3nUqbx6qMkVAIm0mV5bFnOhRZa1KCEQbbfWpzBWr1e5B2FPKyc')
-auth.set_access_token('2465447359-nge8h5d3WTxZQZ3msNqTPHnqM0LAkwXOR6mQOPA',
-                      'VS8W739mDtT9qdaK62iIEIRCLIP5YpBFUWzcotqWpdmkg')
+auth = tweepy.OAuthHandler(consumer_key=consumer_key,
+                           consumer_secret=consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 try:
