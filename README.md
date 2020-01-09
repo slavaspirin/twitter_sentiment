@@ -33,7 +33,7 @@ You will need (consumer_key, consumer_secret, access_token, access_token_secret)
 `pip install git+https://github.com/SlavOK400/m3inference.git`
 
 * **twitter_sentiment package**
-`git clone https://github.com/SlavOK400/twitter_sentiment.git`
+`git lfs install` then `git lfs clone https://github.com/SlavOK400/twitter_sentiment.git`
 
 * **Define your twitter app keys:**
 consumer_key, consumer_secret, access_token, access_token_secret in listener.py 
