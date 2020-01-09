@@ -1,6 +1,6 @@
 # Twitter sentiment analysis
 
-This project aims to preprocess live tweets for futher analysis. Steps involved:
+This project aims to preprocess live tweets for further analysis. Steps involved:
 * Raw data collecting
 * Data preprocessing 
 * Demographics prediction
@@ -25,7 +25,7 @@ pycld2>=0.31
 requests
 pandas>=0.20
 ```
-Also you need tweeter applciation access keys that you define in listener.py 
+Also you need tweeter application  access keys that you define in listener.py 
 You will need (consumer_key, consumer_secret, access_token, access_token_secret) [Link](https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a)
 
 ### Installing
