@@ -1,6 +1,4 @@
- <img src="project_logo.jpg">
- 
- # Twitter sentiment analysis
+# Twitter sentiment analysis
 
 This project aims to preprocess live tweets for further analysis. Steps involved:
 * Raw data collecting
@@ -62,4 +60,4 @@ and
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-
+ <img src="project_logo.jpg">
